@@ -1,4 +1,4 @@
-; Guy - ECE final project v3
+; Guy - ECE final project vB2
 ; minimizes total length of all the robots based on the length of
 ; each action. this means that we need to encode the path length
 ; of each combination (loc(i)->loc(j), loc(j)->loc(i) for all connected i,j) in the task file.
