@@ -1,0 +1,21 @@
+; Time 0.38
+; Length 16
+
+; TotalCost 64
+0: (move robot1 h3x5y11 h0x10y10) [2]
+1: (move robot0 h0x9y10 h3x5y12) [5]
+2: (load robot0 p0 h3x5y12) [1]
+3: (move robot0 h3x5y12 h3x2y6) [5]
+4: (unload robot0 p0 h3x2y6) [1]
+5: (move robot0 h3x2y6 h0x10y10) [7]
+6: (load robot0 p2 h0x10y10) [1]
+7: (move robot0 h0x10y10 h0x10y19) [10]
+8: (unload robot0 p2 h0x10y19) [1]
+9: (load robot1 p1 h0x10y10) [1]
+10: (move robot1 h0x10y10 h2x10y5) [13]
+11: (unload robot1 p1 h2x10y5) [1]
+12: (move robot1 h2x10y5 h3x2y20) [9]
+13: (load robot1 p3 h3x2y20) [1]
+14: (move robot1 h3x2y20 h0x6y4) [5]
+15: (unload robot1 p3 h0x6y4) [1]
+; END OF PLAN

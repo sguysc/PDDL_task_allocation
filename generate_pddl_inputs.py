@@ -16,7 +16,7 @@ from itertools import combinations_with_replacement
 import networkx as nx
 import shutil
 
-formalism = 'b1' # 'b1',b2','c','d' # I did not implement a
+formalism = 'c' # 'b1',b2','c','d' # I did not implement a
 d_filename = 'domain_%s.pddl' %formalism
 t_filename = 'task_%s.pddl' %formalism
 specification_path = './'
@@ -33,7 +33,9 @@ def LoadRoadMap(filename):
     ff = open(specification_path + filename + '.pickle', 'rb')
     #ff = open(filename + '.pkl', 'rb')
     # python2->python3 conversion
-    return pickle.load(ff, encoding="latin1") 
+    rmap = pickle.load(ff, encoding="latin1") 
+    ff.close()
+    return rmap
 
 # act as "structs"
 class Robot(object):
@@ -259,7 +261,7 @@ def create_domain_file6():
         f.write(';just moves the robot between places\n')
         f.write('(:durative-action move\n')
         f.write('    :parameters (?robot - agent ?from - location ?to - location)\n')
-        f.write('    :duration (= ?duration 5)\n');
+        f.write('    :duration (= ?duration 1)\n');
         f.write('    :condition (and\n')
         f.write('                  (at start (avail ?robot) )\n')
         f.write('                  (at start (is_at ?robot ?from) )\n')
@@ -277,7 +279,7 @@ def create_domain_file6():
         f.write(';pickup a pallet if robot is at the location of the pallet and it\'s capacity\n;is allowing\n')
         f.write('(:durative-action load\n')
         f.write('    :parameters (?robot - agent ?unit - pallet ?loc - location)\n')
-        f.write('    :duration (= ?duration 2)\n');
+        f.write('    :duration (= ?duration 1)\n');
         f.write('    :condition (and\n')
         f.write('                  (at start (avail ?robot) )\n')
         f.write('                  (at start (not (full ?robot)) )\n')
@@ -295,7 +297,7 @@ def create_domain_file6():
         f.write('            )\n  )\n\n')
         f.write('(:durative-action unload\n')
         f.write('    :parameters (?robot - agent ?unit - pallet ?loc - location)\n')
-        f.write('    :duration (= ?duration 2)\n');
+        f.write('    :duration (= ?duration 1)\n');
         f.write('    :condition (and\n')
         f.write('                  (at start (avail ?robot) )\n')
         f.write('                  (at start (on ?unit ?robot) )\n')
@@ -313,6 +315,8 @@ def create_domain_file6():
         f.write('\n')
         
 def create_task_file3(robots, pallets, roadmap):
+    # fff=open('B2_nodes.json', 'wt')
+    
     with open(t_filename, 'w+') as f:
         f.write('(define (problem auto_warehouse_easy)\n' )
         f.write('  (:domain auto_warehouse)\n')
@@ -392,6 +396,7 @@ def create_task_file3(robots, pallets, roadmap):
             tmp_str += '(at %s %s) ' %(p.name, p.drop)
         f.write(tmp_str + ')\n    )\n')
         f.write('  (:metric minimize (total-cost))\n)\n')
+    # fff.close()
 
 def create_task_file4(robots, pallets, roadmap):
     with open(t_filename, 'w+') as f:
@@ -764,43 +769,63 @@ if __name__ == '__main__':
     # singularity run -C -H $RUNDIR planner.img $DOMAIN $PROBLEM $PLANFIL
 
 #%%
-""" for the ploting of the "graph" object
-import matplotlib.pyplot as plt
-pos = nx.layout.spring_layout(roadmap)
-#pos = nx.layout.random_layout(roadmap)
-#pos = nx.layout.spiral_layout(roadmap)
+# #for the ploting of the "graph" object
+# import matplotlib.pyplot as plt
+# pos = nx.layout.spring_layout(roadmap, k=0.8)
+# #pos = nx.layout.random_layout(roadmap)
+# #pos = nx.layout.spiral_layout(roadmap)
 
-ec = nx.draw_networkx_edges(roadmap, pos, alpha=0.2)
-nc = nx.draw_networkx_nodes(roadmap, pos, \
-                            with_labels=False, node_size=12, cmap=plt.cm.Blues)
+# ec = nx.draw_networkx_edges(roadmap, pos, alpha=0.2)
+# nc = nx.draw_networkx_nodes(roadmap, pos, \
+#                             with_labels=False, node_size=12, cmap=plt.cm.Blues)
+# # C
+# colors = [(0.9,0.0,0.0)]*len(pos)
+# nc = nx.draw_networkx_nodes(roadmap, pos, node_color=colors, \
+#                             with_labels=False, node_size=12, cmap=plt.cm.jet)
 
-# nodes = ['H2X7Y5', 'H3X2Y4', 'H1X4Y15', 'H0X12Y17', \
-                    # 'H3X1Y12', 'H2X7Y20', 'H2X7Y5', 'H3X2Y4', \
-                    # 'H1X9Y5', 'H1X4Y11']
-locations = unique(['H2X7Y5', 'H3X2Y4', 'H1X4Y15', 'H0X12Y17', \
-                    'H3X1Y12', 'H2X7Y20', 'H2X7Y5', 'H3X2Y4', \
-                    'H1X9Y5', 'H1X4Y11'])    
-nodes = []
-perm = combinations_with_replacement(locations, 2)
-for i in list(perm):  
-    if(i[0] == i[1]):
-        nodes.append(i[0])
-    else:
-        path = nx.dijkstra_path(roadmap, source=i[0], target=i[1], weight='weight')
-        for j in range(len(path)-1):
-            if(path[j+1] not in nodes):
-                nodes.append(path[j+1])
-        path = nx.dijkstra_path(roadmap, source=i[1], target=i[0], weight='weight')
-        for j in range(len(path)-1):
-            if(path[j+1] not in nodes):
-                nodes.append(path[j+1])
-nodes = unique(nodes)
+# # nodes = ['H2X7Y5', 'H3X2Y4', 'H1X4Y15', 'H0X12Y17', \
+#                     # 'H3X1Y12', 'H2X7Y20', 'H2X7Y5', 'H3X2Y4', \
+#                     # 'H1X9Y5', 'H1X4Y11']
+# # locations = unique(['H2X7Y5', 'H3X2Y4', 'H1X4Y15', 'H0X12Y17', \
+#                     # 'H3X1Y12', 'H2X7Y20', 'H2X7Y5', 'H3X2Y4', \
+#                     # 'H1X9Y5', 'H1X4Y11'])    
+# starting_points = unique(['H0X9Y10', 'H3X5Y11'])
+# goal_points = (['H3X5Y12', 'H0X10Y10', 'H3X2Y20', 'H3X2Y6', 'H2X10Y5', 'H0X10Y19', 'H0X6Y4'])
+# locations = starting_points + goal_points
+# nodes = []
+# # b2
+# nodes = locations.copy()
+# # b1
+# # perm = combinations_with_replacement(locations, 2)
+# # for i in list(perm):  
+# #     if(i[0] == i[1]):
+# #         nodes.append(i[0])
+# #     else:
+# #         path = nx.dijkstra_path(roadmap, source=i[0], target=i[1], weight='weight')
+# #         for j in range(len(path)-1):
+# #             if(path[j+1] not in nodes):
+# #                 nodes.append(path[j+1])
+# #         path = nx.dijkstra_path(roadmap, source=i[1], target=i[0], weight='weight')
+# #         for j in range(len(path)-1):
+# #             if(path[j+1] not in nodes):
+# #                 nodes.append(path[j+1])
+# # nodes = unique(nodes)
+
+# for i in starting_points:
+#     nodes.remove(i)
+# for i in goal_points:
+#     nodes.remove(i)
 # colors = [(0.9,0.0,0.0)]*len(nodes)
 # nc = nx.draw_networkx_nodes(roadmap, pos, nodelist=nodes, node_color=colors, \
 #                             with_labels=False, node_size=20, cmap=plt.cm.jet)
-# colors = [(0.0,0.8,0.0)]*len(locations)
-# nc = nx.draw_networkx_nodes(roadmap, pos, nodelist=locations, node_color=colors, \
+# colors = [(1., 0.85, 0.)]*len(starting_points)
+# nc = nx.draw_networkx_nodes(roadmap, pos, nodelist=starting_points, node_color=colors, \
 #                             with_labels=False, node_size=20, cmap=plt.cm.jet)
-plt.title("Roadmap and meaningful points")
-plt.show()
-"""
+# colors = [(0.4, 0.85, 0.4)]*len(goal_points)
+# nc = nx.draw_networkx_nodes(roadmap, pos, nodelist=goal_points, node_color=colors, \
+#                             with_labels=False, node_size=20, cmap=plt.cm.jet)
+# # colors = [(0.0,0.8,0.0)]*len(locations)
+# # nc = nx.draw_networkx_nodes(roadmap, pos, nodelist=locations, node_color=colors, \
+# #                             with_labels=False, node_size=20, cmap=plt.cm.jet)
+# plt.title("Roadmap and meaningful points")
+# plt.show()
