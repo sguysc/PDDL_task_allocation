@@ -21,18 +21,32 @@ node_data = jsondecode(node_text);
 %% participating locations
 % b1
 % connecting_points = {'H0X7Y19', 'H3X3Y16', 'H1X6Y7', 'H1X9Y3', 'H3X6Y17', 'H2X6Y11', 'H0X6Y10', 'H0X5Y19', 'H3X5Y15', 'H3X5Y19', 'H3X5Y3', 'H0X2Y10', 'H2X4Y21', 'H0X5Y10', 'H2X5Y8', 'H1X6Y9', 'H3X4Y3', 'H1X9Y6', 'H0X6Y19', 'H1X8Y10', 'H3X5Y13', 'H3X4Y8', 'H3X5Y21', 'H0X4Y17', 'H2X4Y5', 'H3X5Y22', 'H1X8Y6', 'H1X7Y9', 'H3X8Y17', 'H3X6Y14', 'H1X8Y8', 'H1X7Y8', 'H0X5Y17', 'H3X7Y15', 'H3X7Y11', 'H3X4Y13', 'H2X6Y5', 'H3X4Y5', 'H2X3Y8', 'H3X2Y5', 'H1X7Y17', 'H0X4Y13', 'H0X7Y10', 'H1X6Y15', 'H1X9Y11', 'H2X4Y20', 'H1X6Y8', 'H3X5Y5', 'H3X5Y17', 'H3X3Y9', 'H0X6Y18', 'H1X6Y6', 'H1X8Y12', 'H2X3Y20', 'H3X2Y10', 'H1X6Y18', 'H0X4Y4', 'H0X3Y10', 'H0X4Y10', 'H3X4Y7', 'H2X7Y14', 'H3X5Y9', 'H3X4Y15', 'H3X2Y14', 'H1X7Y13', 'H2X7Y5', 'H0X7Y4', 'H1X8Y7', 'H0X4Y19', 'H1X9Y5', 'H0X1Y19', 'H2X5Y5', 'H3X4Y9', 'H3X5Y7', 'H0X0Y10', 'H3X4Y4', 'H0X5Y18', 'H0X9Y19', 'H3X7Y7', 'H2X3Y5', 'H1X7Y16', 'H3X8Y14', 'H3X5Y14', 'H3X3Y17', 'H3X6Y15', 'H3X2Y19', 'H1X9Y4', 'H0X3Y14', 'H3X5Y6', 'H3X5Y16', 'H3X7Y8', 'H0X0Y19', 'H3X7Y12', 'H3X5Y18', 'H3X2Y7', 'H3X2Y8', 'H3X8Y13', 'H3X2Y18', 'H0X4Y18', 'H0X7Y9', 'H3X5Y8', 'H3X8Y15', 'H1X7Y15', 'H2X2Y5', 'H1X7Y7', 'H1X9Y12', 'H3X2Y16', 'H3X8Y16', 'H3X5Y10', 'H1X6Y19', 'H2X8Y5', 'H0X1Y10', 'H3X2Y11', 'H3X5Y20', 'H2X5Y11', 'H1X6Y10', 'H0X8Y19', 'H3X7Y16', 'H3X6Y16', 'H1X8Y9', 'H3X2Y4', 'H3X6Y7', 'H3X4Y6', 'H0X8Y10', 'H1X9Y7', 'H2X7Y13', 'H0X3Y19', 'H3X2Y21', 'H2X0Y5', 'H3X2Y13', 'H2X4Y8', 'H3X3Y18', 'H1X7Y6', 'H2X9Y5', 'H0X3Y13', 'H3X2Y12', 'H1X8Y13', 'H2X4Y6', 'H3X2Y9', 'H3X2Y15', 'H0X2Y19', 'H0X4Y14', 'H0X7Y18', 'H0X5Y14', 'H3X2Y17', 'H1X6Y11', 'H0X5Y4', 'H3X4Y14', 'H3X7Y17', 'H3X8Y12', 'H2X1Y5', 'H3X5Y4', 'H3X4Y10'};
+% starting_points = {'H0X9Y10', 'H3X5Y11', 'H1X8Y20', 'H0X2Y3'};
+% goal_points = {'H3X5Y12', 'H0X10Y10', 'H3X2Y20', 'H3X2Y6', 'H2X10Y5', 'H0X10Y19', 'H0X6Y4'};
+% connecting_points = {'H2X3Y9', 'H3X3Y17', 'H1X5Y6', 'H1X5Y15', 'H0X10Y10', 'H0X4Y4', 'H3X4Y10', 'H1X7Y13', 'H0X7Y18', 'H2X6Y11', 'H0X9Y10', 'H2X12Y4', 'H3X5Y12', 'H3X4Y14', 'H1X2Y11', 'H0X8Y10', 'H1X6Y17', 'H1X2Y8', 'H1X12Y21', 'H1X7Y17', 'H3X8Y20', 'H3X4Y6', 'H1X8Y12', 'H2X7Y5', 'H0X6Y10', 'H1X6Y9', 'H3X5Y17', 'H3X6Y15', 'H0X5Y10', 'H1X5Y18', 'H3X5Y11', 'H0X11Y10', 'H3X7Y7', 'H3X8Y21', 'H1X3Y14', 'H2X4Y6', 'H3X2Y8', 'H0X4Y14', 'H3X7Y11', 'H3X7Y18', 'H2X5Y7', 'H0X7Y10', 'H1X5Y7', 'H2X6Y14', 'H2X7Y14', 'H0X9Y19', 'H0X3Y13', 'H0X5Y1', 'H1X4Y5', 'H2X6Y1', 'H1X4Y17', 'H2X9Y13', 'H3X9Y21', 'H2X8Y5', 'H2X6Y8', 'H2X7Y13', 'H3X2Y2', 'H3X10Y3', 'H1X5Y20', 'H2X10Y13', 'H1X11Y21', 'H3X8Y12', 'H2X3Y6', 'H3X8Y10', 'H2X4Y9', 'H2X6Y5', 'H0X6Y11', 'H3X2Y20', 'H0X8Y5', 'H3X5Y10', 'H0X0Y8', 'H0X10Y19', 'H0X6Y4', 'H2X6Y7', 'H2X11Y5', 'H3X2Y10', 'H0X4Y17', 'H1X6Y13', 'H2X6Y13', 'H1X7Y9', 'H0X8Y2', 'H0X6Y8', 'H3X8Y16', 'H3X7Y12', 'H1X4Y13', 'H0X3Y3', 'H3X2Y16', 'H3X3Y5', 'H0X6Y9', 'H0X4Y10', 'H3X9Y13', 'H3X2Y6', 'H1X4Y3', 'H3X4Y12', 'H3X4Y9', 'H3X6Y14', 'H3X6Y4', 'H1X2Y15', 'H0X5Y4', 'H1X8Y6', 'H3X3Y3', 'H2X10Y5', 'H3X2Y12', 'H3X2Y7', 'H1X4Y9', 'H0X7Y9', 'H1X4Y7', 'H2X7Y19', 'H1X8Y10', 'H3X1Y7', 'H0X12Y1', 'H3X3Y13', 'H2X8Y13', 'H2X11Y13', 'H1X2Y12', 'H1X5Y2', 'H1X5Y16', 'H1X6Y15', 'H0X3Y5', 'H3X6Y8', 'H0X3Y14', 'H3X9Y17', 'H2X9Y5', 'H3X3Y9', 'H2X3Y10', 'H2X0Y11', 'H1X6Y6', 'H3X6Y9', 'H0X7Y20', 'H0X5Y3', 'H1X3Y8'};
 % starting_points = {'H0X9Y10', 'H3X5Y11'};
 % goal_points = {'H3X5Y12', 'H0X10Y10', 'H3X2Y20', 'H3X2Y6', 'H2X10Y5', 'H0X10Y19', 'H0X6Y4'};
 % b2
 % connecting_points = {'H0X9Y10', 'H3X2Y6', 'H2X10Y5', 'H3X5Y11', 'H3X2Y20', 'H0X6Y4', 'H3X5Y12', 'H0X10Y10', 'H0X10Y19'};
 % starting_points = {'H0X9Y10', 'H3X5Y11'};
 % goal_points = {'H3X5Y12', 'H0X10Y10', 'H3X2Y20', 'H3X2Y6', 'H2X10Y5', 'H0X10Y19', 'H0X6Y4'};
+% connecting_points = {'H0X10Y19', 'H0X9Y10', 'H0X6Y4', 'H0X10Y10', 'H3X5Y11', 'H3X2Y6', 'H2X10Y5', 'H3X2Y20', 'H3X5Y12'};
 % c
-connecting_points = {};
-starting_points = {'H0X9Y10', 'H3X5Y11'};
-goal_points = {'H3X5Y12', 'H0X10Y10', 'H3X2Y20', 'H3X2Y6', 'H2X10Y5', 'H0X10Y19', 'H0X6Y4'};
-
-
+% connecting_points = {};
+% starting_points = {'H0X9Y10', 'H3X5Y11'};
+% goal_points = {'H3X5Y12', 'H0X10Y10', 'H3X2Y20', 'H3X2Y6', 'H2X10Y5', 'H0X10Y19', 'H0X6Y4'};
+% d
+% connecting_points={'H1X2Y12', 'H0X4Y17', 'H2X6Y11', 'H0X8Y2', 'H3X4Y12', 'H1X4Y7', 'H0X11Y10', 'H1X5Y16', 'H1X2Y8', 'H0X4Y4', 'H1X7Y9', 'H3X10Y3', 'H1X7Y13', 'H3X5Y17', 'H3X3Y3', 'H2X9Y13', 'H2X7Y14', 'H0X7Y9', 'H1X3Y8', 'H0X9Y10', 'H2X10Y5', 'H3X2Y16', 'H3X3Y5', 'H2X8Y13', 'H1X4Y9', 'H3X4Y14', 'H3X8Y21', 'H2X9Y5', 'H2X7Y19', 'H0X3Y3', 'H2X8Y5', 'H1X5Y18', 'H0X3Y14', 'H0X4Y14', 'H3X3Y13', 'H3X8Y10', 'H1X7Y17', 'H3X2Y20', 'H2X6Y8', 'H3X8Y20', 'H1X8Y10', 'H2X11Y13', 'H2X0Y11', 'H3X7Y18', 'H3X2Y6', 'H3X5Y11', 'H3X4Y6', 'H1X5Y2', 'H2X6Y13', 'H0X10Y10', 'H0X5Y10', 'H3X2Y2', 'H1X4Y13', 'H0X10Y19', 'H0X0Y8', 'H0X6Y4', 'H0X7Y18', 'H2X7Y13', 'H3X3Y17', 'H2X4Y6', 'H1X2Y11', 'H3X5Y12', 'H0X8Y5', 'H1X3Y14', 'H0X5Y1', 'H2X3Y9', 'H3X8Y12', 'H3X9Y21', 'H1X6Y9', 'H3X5Y10', 'H2X6Y14', 'H0X6Y11', 'H1X2Y15', 'H3X4Y10', 'H0X6Y10', 'H1X5Y6', 'H3X2Y7', 'H0X9Y19', 'H0X5Y4', 'H1X6Y13', 'H3X2Y8', 'H0X6Y8', 'H1X4Y3', 'H1X4Y5', 'H1X11Y21', 'H3X9Y13', 'H1X5Y15', 'H3X6Y15', 'H2X11Y5', 'H0X6Y9', 'H1X8Y12', 'H3X4Y9', 'H1X8Y6', 'H3X8Y16', 'H1X5Y20', 'H1X4Y17', 'H2X6Y1', 'H2X3Y10', 'H0X7Y20', 'H2X7Y5', 'H3X3Y9', 'H2X4Y9', 'H0X3Y13', 'H1X6Y17', 'H3X2Y10', 'H0X3Y5', 'H3X6Y4', 'H2X6Y7', 'H3X9Y17', 'H3X2Y12', 'H3X1Y7', 'H1X6Y15', 'H0X12Y1', 'H3X6Y8', 'H1X6Y6', 'H3X6Y9', 'H3X7Y11', 'H2X6Y5', 'H2X5Y7', 'H1X5Y7', 'H0X8Y10', 'H3X6Y14', 'H2X12Y4', 'H0X7Y10', 'H3X7Y12', 'H3X7Y7', 'H0X5Y3', 'H0X4Y10', 'H2X10Y13', 'H2X3Y6', 'H1X12Y21'};
+% starting_points = {'H0X9Y10', 'H3X5Y11'};
+% goal_points = {'H3X5Y12', 'H0X10Y10', 'H3X2Y20', 'H3X2Y6', 'H2X10Y5', 'H0X10Y19', 'H0X6Y4'};
+% 4 robots b1
+% connecting_points={'H1X2Y12', 'H2X5Y13', 'H0X4Y17', 'H3X4Y17', 'H3X3Y11', 'H0X8Y2', 'H3X4Y12', 'H1X4Y7', 'H2X6Y11', 'H0X11Y10', 'H1X5Y16', 'H3X5Y16', 'H1X2Y8', 'H0X4Y4', 'H3X5Y20', 'H2X4Y22', 'H1X7Y9', 'H3X10Y3', 'H2X5Y1', 'H1X7Y13', 'H1X8Y21', 'H3X5Y17', 'H3X3Y3', 'H2X9Y13', 'H2X7Y14', 'H0X7Y9', 'H3X1Y8', 'H1X3Y8', 'H0X9Y10', 'H2X10Y5', 'H3X2Y16', 'H3X3Y5', 'H2X8Y13', 'H0X9Y2', 'H2X6Y21', 'H0X6Y18', 'H1X4Y9', 'H3X0Y5', 'H0X2Y3', 'H3X4Y14', 'H0X4Y18', 'H3X8Y21', 'H2X9Y5', 'H3X6Y16', 'H3X4Y8', 'H2X7Y19', 'H0X3Y3', 'H0X6Y3', 'H1X5Y5', 'H2X8Y5', 'H1X5Y18', 'H0X3Y14', 'H0X4Y14', 'H1X8Y19', 'H0X6Y19', 'H3X3Y13', 'H3X4Y18', 'H2X2Y6', 'H3X8Y10', 'H1X7Y17', 'H3X2Y20', 'H2X6Y8', 'H3X8Y20', 'H1X8Y10', 'H1X6Y10', 'H2X11Y13', 'H2X0Y11', 'H3X7Y18', 'H3X2Y6', 'H3X5Y11', 'H3X4Y6', 'H3X2Y11', 'H1X5Y2', 'H3X7Y15', 'H2X6Y13', 'H1X8Y15', 'H0X10Y10', 'H0X5Y10', 'H3X2Y2', 'H0X7Y19', 'H1X4Y13', 'H3X5Y21', 'H0X10Y19', 'H0X0Y8', 'H0X6Y4', 'H0X7Y18', 'H2X7Y13', 'H3X3Y17', 'H2X4Y6', 'H1X2Y11', 'H3X5Y12', 'H0X8Y5', 'H1X3Y14', 'H0X5Y1', 'H3X5Y19', 'H2X3Y9', 'H3X6Y18', 'H0X8Y19', 'H3X8Y12', 'H3X9Y21', 'H1X6Y9', 'H3X5Y10', 'H1X6Y14', 'H3X5Y15', 'H2X6Y14', 'H0X6Y11', 'H1X2Y15', 'H3X4Y10', 'H3X2Y5', 'H0X6Y10', 'H1X5Y6', 'H1X8Y16', 'H3X2Y7', 'H2X5Y5', 'H0X9Y19', 'H0X5Y4', 'H1X8Y20', 'H1X3Y9', 'H1X6Y13', 'H3X2Y8', 'H0X6Y8', 'H0X5Y18', 'H1X4Y3', 'H1X4Y5', 'H3X6Y12', 'H1X11Y21', 'H3X9Y13', 'H1X5Y15', 'H3X6Y15', 'H2X11Y5', 'H0X6Y9', 'H1X8Y12', 'H1X8Y6', 'H3X4Y9', 'H3X8Y16', 'H1X5Y20', 'H1X4Y17', 'H2X6Y1', 'H2X3Y10', 'H0X7Y20', 'H2X7Y5', 'H3X3Y9', 'H3X4Y16', 'H2X4Y9', 'H3X4Y13', 'H0X3Y13', 'H1X6Y17', 'H3X2Y10', 'H1X8Y11', 'H0X3Y5', 'H3X6Y4', 'H2X6Y7', 'H3X9Y17', 'H3X2Y12', 'H3X1Y7', 'H1X6Y15', 'H0X12Y1', 'H2X2Y0', 'H3X6Y8', 'H1X6Y6', 'H2X3Y22', 'H3X7Y11', 'H2X6Y5', 'H2X5Y7', 'H1X5Y7', 'H3X6Y9', 'H0X8Y10', 'H3X6Y14', 'H2X12Y4', 'H0X7Y10', 'H3X7Y12', 'H3X7Y7', 'H0X5Y3', 'H0X4Y10', 'H0X4Y3', 'H2X10Y13', 'H2X3Y6', 'H1X12Y21'};
+% starting_points = {'H0X9Y10', 'H3X5Y11', 'H1X8Y20', 'H0X2Y3'};
+% goal_points = {'H3X5Y12', 'H0X10Y10', 'H3X2Y20', 'H3X2Y6', 'H2X10Y5', 'H0X10Y19', 'H0X6Y4'};
+% human
+% connecting_points = {};
+% starting_points = {'H0X9Y10', 'H3X5Y11', 'H1X8Y20', 'H0X2Y3'};
+% goal_points = {'H3X5Y12', 'H0X10Y10', 'H3X2Y20', 'H3X2Y6', 'H2X10Y5', 'H0X10Y19', 'H0X6Y4'};
 
 %% Jackal stuff
 % fclose(fid);
@@ -101,8 +115,8 @@ for i=1:size(bounds,1)
 end
 
 nodes = fieldnames(node_data);
-% disp('do not forget to remove me!!')
-% nodes = {};
+disp('do not forget to remove me!!')
+nodes = {};
 for node = nodes'
     node = node{:};
     [parent, child] = strtok(node, '_'); child = child(2:end);
@@ -153,23 +167,32 @@ end
 
 % robot1
 % human
-% path={'H3X5Y11', 'H3X5Y12', 'H3X5Y11', 'H3X5Y10', 'H2X3Y8', 'H2X4Y8', 'H3X2Y6', ...
-%      'H3X2Y7', 'H3X2Y8', 'H3X2Y9', 'H3X2Y10', 'H3X2Y11', 'H3X2Y12', 'H3X2Y13', ...
-%     'H3X2Y14', 'H3X2Y15', 'H3X2Y16', 'H3X2Y17', 'H3X2Y18', 'H3X2Y19', 'H3X2Y20', ...
-%     'H3X3Y17', 'H3X4Y14', 'H3X4Y10', 'H3X4Y6', 'H0X6Y4'};
-% actions = [2,1,1,6,2,5,2,2,2,2,2,2,2,2,2,2,2,2,2,2,3,3,0,0,5,0];
+path={'H3X5Y11', 'H3X5Y12', 'H3X5Y11', 'H3X5Y10', 'H2X3Y8', 'H2X4Y8', 'H3X2Y6', ...
+     'H3X2Y7', 'H3X2Y8', 'H3X2Y9', 'H3X2Y10', 'H3X2Y11', 'H3X2Y12', 'H3X2Y13', ...
+    'H3X2Y14', 'H3X2Y15', 'H3X2Y16', 'H3X2Y17', 'H3X2Y18', 'H3X2Y19', 'H3X2Y20', ...
+    'H3X3Y17', 'H3X4Y14', 'H3X4Y10', 'H3X4Y6', 'H0X6Y4'};
+actions = [2,1,1,6,2,5,2,2,2,2,2,2,2,2,2,2,2,2,2,2,3,3,0,0,5,0];
 % b1
 % path = {'H3X5Y11', 'H3X5Y12', 'H3X5Y11', 'H3X5Y10', 'H2X3Y8', 'H2X4Y8', 'H3X2Y6'};
 % actions = [2, 1, 1, 6, 2, 5, 0];
+% path={'H0X9Y10', 'H0X10Y10', 'H2X10Y13', 'H2X7Y14', 'H3X5Y12', 'H3X5Y11', 'H3X6Y8', 'H3X6Y4', 'H0X8Y2', 'H2X8Y5', 'H2X9Y5', 'H2X10Y5', };
+% actions=[1, 7, 4, 5, 1, 3, 0, 5, 7, 2, 2, 0];
 %b2
 % path = {'H3X5Y11', 'H0X7Y9', 'H0X10Y10', 'H0X9Y10', 'H0X8Y10', 'H0X7Y10', 'H0X6Y10', 'H0X5Y10', 'H3X7Y8', 'H3X7Y7', 'H2X5Y5', 'H2X6Y5', 'H2X7Y5', 'H2X8Y5', 'H2X9Y5', 'H2X10Y5', 'H2X9Y5', 'H2X8Y5', 'H1X6Y7', 'H1X6Y11', 'H1X6Y15', 'H1X6Y19', 'H2X4Y21', 'H3X2Y19', 'H3X2Y20', 'H3X3Y17', 'H3X4Y14', 'H3X4Y10', 'H3X4Y6'};
 % actions = [5, 3, 2, 2, 2, 2, 2, 6, 1, 6, 2, 2, 2, 2, 2, 1, 1, 6, 0, 0, 0, 5, 5, 2, 3, 3, 0, 0, 5, 0];
+% path={'H0X9Y10', 'H0X10Y10', 'H2X10Y13', 'H2X7Y14', 'H1X5Y16', 'H1X5Y20', 'H3X2Y20', 'H3X2Y16', 'H3X2Y12', 'H3X3Y9', 'H3X4Y6', 'H0X6Y4', 'H2X6Y7', 'H0X6Y10', 'H1X8Y12', 'H3X5Y12', 'H2X3Y10', 'H2X0Y11', 'H0X0Y8', 'H3X2Y6'};
+% actions=[1, 7, 4, 6, 0, 7, 0, 0, 3, 3, 5, 7, 8, 5, 7, 6, 4, 7, 6, 0];
 % c
-path = {'H3X5Y11', 'H3X5Y12', 'H2X3Y10', 'H2X0Y11', 'H0X0Y8', 'H3X2Y6', 'H0X4Y4', 'H0X5Y4', 'H0X6Y4', 'H0X9Y5', 'H0X8Y5', 'H3X10Y3', 'H0X12Y1', 'H2X12Y4', 'H2X9Y5', 'H2X10Y5', 'H2X6Y5', 'H2X3Y6', 'H0X3Y9', 'H0X6Y10', 'H0X10Y10', 'H2X10Y13', 'H3X8Y11', 'H3X7Y8', 'H3X7Y4', 'H0X9Y2', 'H0X12Y1', 'H2X12Y4', 'H2X9Y5', 'H2X10Y5'};
-actions = [2, 6, 4, 7, 6, 5, 1, 1, 3, 2, 6, 5, 7, 4, 2, 0, 4, 8, 3, 0, 7, 5, 4, 0, 5, 4, 7, 4, 2, 0];
+% path = {'H3X5Y11', 'H3X5Y12', 'H2X3Y10', 'H2X0Y11', 'H0X0Y8', 'H3X2Y6', 'H0X4Y4', 'H0X5Y4', 'H0X6Y4', 'H0X9Y5', 'H0X8Y5', 'H3X10Y3', 'H0X12Y1', 'H2X12Y4', 'H2X9Y5', 'H2X10Y5', 'H2X6Y5', 'H2X3Y6', 'H0X3Y9', 'H0X6Y10', 'H0X10Y10', 'H2X10Y13', 'H3X8Y11', 'H3X7Y8', 'H3X7Y4', 'H0X9Y2', 'H0X12Y1', 'H2X12Y4', 'H2X9Y5', 'H2X10Y5'};
+% actions = [2, 6, 4, 7, 6, 5, 1, 1, 3, 2, 6, 5, 7, 4, 2, 0, 4, 8, 3, 0, 7, 5, 4, 0, 5, 4, 7, 4, 2, 0];
 % d
 % path = {'H3X5Y11', 'H3X5Y12', 'H3X5Y11', 'H3X5Y10', 'H2X3Y8', 'H2X4Y8', 'H3X2Y6', 'H0X4Y4', 'H0X5Y4', 'H0X6Y4', 'H0X5Y4', 'H1X7Y6', 'H1X7Y7', 'H1X7Y8', 'H0X9Y10', 'H0X10Y10', 'H0X9Y10', 'H0X8Y10', 'H0X7Y10', 'H0X6Y10', 'H1X8Y12', 'H1X8Y13', 'H1X7Y16', 'H1X7Y17', 'H0X9Y19', 'H0X10Y19'};
 % actions = [2, 1, 1, 6, 2, 5, 5, 1, 1, 2, 5, 1, 1, 6, 1, 2, 2, 2, 2, 5, 1, 3, 1, 6, 1, 0];
+% path={'H0X9Y10', 'H0X10Y10', 'H2X10Y13', 'H2X7Y14', 'H1X5Y16', 'H0X7Y18', 'H0X10Y19', 'H0X9Y19', 'H1X11Y21', 'H3X8Y21', 'H3X8Y20', 'H1X5Y20', 'H3X2Y20', 'H3X2Y16', 'H3X2Y12', 'H3X3Y9', 'H3X4Y6', 'H0X6Y4'};
+% actions=[1, 7, 4, 6, 6, 3, 2, 5, 7, 1, 8, 7, 0, 0, 3, 3, 5, 0];
+% 4 robots b1
+% path={'H0X9Y10', 'H0X10Y10', 'H2X10Y13', 'H2X7Y14', 'H1X5Y16', 'H0X7Y18', 'H0X10Y19'};
+% actions=[1, 7, 4, 6, 6, 3, 0];
 
 states = zeros(length(path), 3);
 for i = 1:length(path)
@@ -208,23 +231,33 @@ for i = 1:size(states,1)-1
 end
 
 % robot0
-% path={'H0X9Y10', 'H0X10Y10', 'H0X9Y10', 'H0X8Y10', 'H0X7Y10', 'H0X6Y10', 'H0X5Y10', ...
-%     'H3X7Y8',  'H3X7Y7', 'H2X5Y5', 'H2X6Y5', 'H2X7Y5', 'H2X8Y5', 'H2X9Y5', 'H2X10Y5', 'H2X9Y5', ...
-%     'H2X8Y5', 'H1X6Y7', 'H1X6Y8', 'H0X8Y10', 'H0X9Y10', 'H0X10Y10', 'H0X9Y10', 'H0X8Y10',...
-%     'H0X7Y10', 'H0X6Y10', 'H1X8Y12', 'H1X8Y13', 'H1X7Y16', 'H1X7Y17', 'H0X9Y19', 'H0X10Y19'};
-% actions = [1,2,2,2,2,2,6,1,6,2,2,2,2,2,1,1,6,1,6,1,1,2,2,2,2,5,1,3,1,6,1,0];
+path={'H0X9Y10', 'H0X10Y10', 'H0X9Y10', 'H0X8Y10', 'H0X7Y10', 'H0X6Y10', 'H0X5Y10', ...
+    'H3X7Y8',  'H3X7Y7', 'H2X5Y5', 'H2X6Y5', 'H2X7Y5', 'H2X8Y5', 'H2X9Y5', 'H2X10Y5', 'H2X9Y5', ...
+    'H2X8Y5', 'H1X6Y7', 'H1X6Y8', 'H0X8Y10', 'H0X9Y10', 'H0X10Y10', 'H0X9Y10', 'H0X8Y10',...
+    'H0X7Y10', 'H0X6Y10', 'H1X8Y12', 'H1X8Y13', 'H1X7Y16', 'H1X7Y17', 'H0X9Y19', 'H0X10Y19'};
+actions = [1,2,2,2,2,2,6,1,6,2,2,2,2,2,1,1,6,1,6,1,1,2,2,2,2,5,1,3,1,6,1,0];
 % b1
 %path = {'H0X9Y10', 'H0X10Y10', 'H0X9Y10', 'H0X8Y10', 'H0X7Y10', 'H0X6Y10', 'H1X8Y12', 'H1X8Y13', 'H1X7Y16', 'H1X7Y17', 'H0X9Y19', 'H0X10Y19', 'H0X9Y19', 'H0X8Y19', 'H0X7Y19', 'H0X6Y19', 'H0X5Y19', 'H0X4Y19', 'H0X3Y19', 'H0X2Y19', 'H0X1Y19', 'H0X0Y19', 'H3X2Y17', 'H3X2Y18', 'H3X2Y19', 'H3X2Y20', 'H3X3Y17', 'H3X4Y14', 'H3X4Y10', 'H3X4Y6', 'H0X6Y4', 'H0X5Y4', 'H1X7Y6', 'H1X7Y7', 'H1X7Y8', 'H0X9Y10', 'H0X10Y10', 'H0X9Y10', 'H0X8Y10', 'H0X7Y10', 'H0X6Y10', 'H0X5Y10', 'H3X7Y8', 'H3X7Y7', 'H2X5Y5', 'H2X6Y5', 'H2X7Y5', 'H2X8Y5', 'H2X9Y5', 'H2X10Y5'};
 %actions = [1, 2, 2, 2, 2, 5, 1, 3, 1, 6, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 6, 2, 2, 2, 3, 3, 0, 0, 5, 2, 5, 1, 1, 6, 1, 2, 2, 2, 2, 2, 6, 1, 6, 2, 2, 2, 2, 2, 0];
+% path={'H3X5Y11', 'H3X5Y12', 'H2X3Y10', 'H2X0Y11', 'H0X0Y8', 'H3X2Y6', 'H1X5Y6', 'H1X6Y9', 'H1X6Y13', 'H1X6Y17', 'H1X5Y20', 'H3X2Y20', 'H3X2Y16', 'H3X2Y12', 'H3X3Y9', 'H3X4Y6', 'H0X6Y4', 'H2X6Y7', 'H0X6Y10', 'H0X10Y10', 'H2X10Y13', 'H2X7Y14', 'H1X5Y16', 'H0X7Y18', 'H0X10Y19', };
+% actions=[2, 6, 4, 7, 6, 7, 4, 0, 0, 3, 7, 0, 0, 3, 3, 5, 7, 8, 0, 7, 4, 6, 6, 3, 0];
 %b2
 % path = {'H0X9Y10', 'H0X8Y10', 'H0X7Y10', 'H1X9Y12', 'H2X7Y14', 'H3X5Y12', 'H3X5Y11', 'H3X5Y10', 'H2X3Y8', 'H2X4Y8', 'H3X2Y6', 'H0X4Y4', 'H0X5Y4', 'H1X7Y6', 'H1X7Y7', 'H1X7Y8', 'H0X9Y10', 'H0X10Y10', 'H0X9Y10', 'H0X8Y10', 'H0X7Y10', 'H0X6Y10', 'H1X8Y12', 'H1X8Y13', 'H1X7Y16', 'H1X7Y17', 'H0X9Y19' };
 % actions = [2, 2, 5, 5, 5, 1, 1, 6, 2, 5, 5, 1, 5, 1, 1, 6, 1, 2, 2, 2, 2, 5, 1, 3, 1, 6, 1, 0];
+% path={'H3X5Y11', 'H0X7Y9', 'H0X10Y10', 'H0X9Y10', 'H2X9Y13', 'H3X7Y11', 'H3X6Y8', 'H3X6Y4', 'H0X8Y2', 'H2X8Y5', 'H2X9Y5', 'H2X10Y5', 'H2X11Y5', 'H2X7Y5', 'H1X5Y7', 'H0X7Y9', 'H0X10Y10', 'H2X10Y13', 'H2X7Y14', 'H1X5Y16', 'H0X7Y18', 'H0X10Y19'};
+% actions=[5, 3, 2, 7, 5, 4, 0, 5, 7, 2, 2, 2, 0, 6, 6, 3, 7, 4, 6, 6, 3, 0];
 % c
-path = {'H0X9Y10', 'H0X10Y10', 'H2X10Y13', 'H2X7Y14', 'H1X5Y16', 'H0X7Y18', 'H0X10Y19', 'H1X12Y21', 'H3X9Y21', 'H2X7Y19', 'H1X5Y21', 'H1X5Y20', 'H3X2Y20', 'H3X2Y16', 'H3X3Y13', 'H3X3Y9', 'H3X4Y6', 'H0X6Y4'};
-actions = [1, 7, 4, 6, 6, 3, 5, 7, 6, 6, 2, 7, 0, 3, 0, 3, 5, 0];
+% path = {'H0X9Y10', 'H0X10Y10', 'H2X10Y13', 'H2X7Y14', 'H1X5Y16', 'H0X7Y18', 'H0X10Y19', 'H1X12Y21', 'H3X9Y21', 'H2X7Y19', 'H1X5Y21', 'H1X5Y20', 'H3X2Y20', 'H3X2Y16', 'H3X3Y13', 'H3X3Y9', 'H3X4Y6', 'H0X6Y4'};
+% actions = [1, 7, 4, 6, 6, 3, 5, 7, 6, 6, 2, 7, 0, 3, 0, 3, 5, 0];
 % d
 % path = {'H0X9Y10', 'H0X10Y10', 'H0X9Y10', 'H0X8Y10', 'H0X7Y10', 'H0X6Y10', 'H0X5Y10', 'H3X7Y8', 'H3X7Y7', 'H2X5Y5', 'H2X6Y5', 'H2X7Y5', 'H2X8Y5', 'H2X9Y5', 'H2X10Y5', 'H2X9Y5', 'H2X8Y5', 'H1X6Y7', 'H1X6Y11', 'H1X6Y15', 'H1X6Y19', 'H2X4Y21', 'H3X2Y19', 'H3X2Y20', 'H3X3Y17', 'H3X4Y14', 'H3X4Y10', 'H3X4Y6', 'H0X6Y4'};
 % actions = [1, 2, 2, 2, 2, 2, 6, 1, 6, 2, 2, 2, 2, 2, 1, 1, 6, 0, 0, 0, 5, 5, 2, 3, 3, 0, 0, 5, 0];
+% path={'H3X5Y11', 'H3X5Y12', 'H2X3Y10', 'H2X0Y11', 'H0X0Y8', 'H3X2Y6', 'H0X4Y4', 'H0X5Y4', 'H0X6Y4', 'H2X6Y7', 'H0X6Y10', 'H0X10Y10', 'H0X9Y10', 'H2X9Y13', 'H3X7Y11', 'H3X6Y8', 'H3X6Y4', 'H0X8Y2', 'H2X8Y5', 'H2X9Y5', 'H2X10Y5'};
+% actions=[2, 6, 4, 7, 6, 5, 1, 1, 7, 8, 0, 2, 7, 5, 4, 0, 5, 7, 2, 2, 0];
+% 4 robots
+% path={'H3X5Y11', 'H3X5Y12', 'H2X3Y10', 'H2X0Y11', 'H0X0Y8', 'H3X2Y6', 'H3X2Y7', 'H1X5Y7', 'H0X7Y9', 'H0X10Y10', 'H0X9Y10', 'H2X9Y13', 'H3X7Y11', 'H3X6Y8', 'H3X6Y4', 'H0X8Y2', 'H2X8Y5', 'H2X9Y5', 'H2X10Y5'};
+% actions=[2, 6, 4, 7, 6, 2, 7, 6, 3, 2, 7, 5, 4, 0, 5, 7, 2, 2, 0];
+
 states = zeros(length(path), 3);
 for i = 1:length(path)
     tmp = sscanf(path{i}, 'H%dX%dY%d');
@@ -261,9 +294,48 @@ for i = 1:size(states,1)-1
     
 end
 
-for i=1:size(W_ygrid,2)
-    plot(repmat(W_ygrid(i),1,size(W_xgrid,2)), W_xgrid, '+', 'Color', [0.85 0.85 0.85])
-end
+
+% path={'H0X2Y3', 'H0X3Y3', 'H0X6Y4', 'H2X6Y7', 'H1X4Y9', 'H1X4Y13', 'H1X4Y17', 'H1X5Y20', 'H3X2Y20', 'H3X3Y17', 'H3X4Y14', 'H3X4Y10', 'H3X4Y6', 'H0X6Y4'};
+% actions=[1, 3, 7, 6, 0, 0, 4, 7, 3, 3, 0, 0, 5, 0];
+% 
+% states = zeros(length(path), 3);
+% for i = 1:length(path)
+%     tmp = sscanf(path{i}, 'H%dX%dY%d');
+%     states(i,:) = tmp';
+% end
+% traj =[];
+% for i = 1:size(states,1)
+%     traj =[traj ; W_xgrid(states(i,2)+1), W_ygrid(states(i,3)+1)];
+% end
+% for i = 1:size(states,1)-1
+%     orientation = states(i,1);
+%     x0 = [traj(i, 1:2) (-1+orientation)*pi/2];
+%     index = 1;
+%     el_loc = [];
+%     pnts = [];
+%     while 1
+%         [x_centers, V] = LoadMotionPrimitives(mp_data, actions(i), index, orientation);
+%         if(isnan(x_centers))
+%             break;
+%         end
+%         el_loc = [el_loc; x0 + x_centers'];
+%         index = index+1;
+%         %pnt = Ellipse_plot(V(1:2,1:2), [el_loc(end,1) el_loc(end,2)]);
+%         %plot(el_loc(end,2),-el_loc(end,1),'.k');
+%         %pnts = [pnts; pnt'];
+%     end
+%     %k = boundary(pnts, 0.9); %.8
+%     %plot(pnts(k,2), -pnts(k,1));
+%     %patch(pnts(k,2), -pnts(k,1), 'red');
+%     %f1 = 1:length(k);
+%     %v1 = [pnts(k,2), pnts(k,1)];
+%     %patch('Faces',f1,'Vertices',v1,'FaceColor','blue','FaceAlpha',.1);
+%     plot(el_loc(:,2),el_loc(:,1), 'Color', [.2 .2 .8], 'LineWidth', 2);
+%     
+% end
+% for i=1:size(W_ygrid,2)
+%     plot(repmat(W_ygrid(i),1,size(W_xgrid,2)), W_xgrid, '+', 'Color', [0.85 0.85 0.85])
+% end
 
 for i=1:size(obstacle,1)
     plot([obstacle(i,2) obstacle(i,2)], -[-obstacle(i,1) -obstacle(i,3)], 'k', 'LineWidth',3);

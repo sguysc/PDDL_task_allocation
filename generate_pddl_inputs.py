@@ -16,7 +16,7 @@ from itertools import combinations_with_replacement
 import networkx as nx
 import shutil
 
-formalism = 'c' # 'b1',b2','c','d' # I did not implement a
+formalism = 'b1' # 'b1',b2','c','d' # I did not implement a
 d_filename = 'domain_%s.pddl' %formalism
 t_filename = 'task_%s.pddl' %formalism
 specification_path = './'
@@ -376,14 +376,14 @@ def create_task_file3(robots, pallets, roadmap):
                 distance = 0
             else:
                 try:
-                    path = nx.dijkstra_path(roadmap, source=i[0], target=i[1], weight='weight')
+                    path = nx.dijkstra_path(roadmap, source=i[0], target=i[1], weight='weight1')
                     distance = len(path) - 1
                 except:
                     distance = 10000
             tmp_str += '         (= (distance %s %s) %d)\n' %(i[0], i[1], distance)
             if(i[0] != i[1]):
                 try:
-                    path = nx.dijkstra_path(roadmap, source=i[1], target=i[0], weight='weight')
+                    path = nx.dijkstra_path(roadmap, source=i[1], target=i[0], weight='weight1')
                     distance = len(path) - 1
                 except:
                     distance = 10000
@@ -509,7 +509,8 @@ def create_task_file5(robots, pallets, roadmap):
                 connect_str += '         (connected %s %s) (= (distance %s %s) %d)\n' %(parent, child, parent, child, distance)            
             else:
                 try:
-                    path = nx.dijkstra_path(roadmap, source=i[0], target=i[1], weight='weight')
+                    # import pdb; pdb.set_trace()
+                    path = nx.dijkstra_path(roadmap, source=i[0], target=i[1], weight='weight1')
                     for j in range(len(path)-1):
                         # keep track of all locations
                         if(path[j+1] not in locations):
@@ -526,7 +527,7 @@ def create_task_file5(robots, pallets, roadmap):
             # now, check the reverse motion, to get all possible motions
             if(i[0] != i[1]):
                 try:
-                    path = nx.dijkstra_path(roadmap, source=i[1], target=i[0], weight='weight')
+                    path = nx.dijkstra_path(roadmap, source=i[1], target=i[0], weight='weight1')
                     for j in range(len(path)-1):
                         # keep track of all locations
                         if(path[j+1] not in locations):
@@ -617,7 +618,7 @@ def create_task_file6(robots, pallets, roadmap):
                 connect_str += '         (connected %s %s)\n' %(parent, child)            
             else:
                 try:
-                    path = nx.dijkstra_path(roadmap, source=i[0], target=i[1], weight='weight')
+                    path = nx.dijkstra_path(roadmap, source=i[0], target=i[1], weight='weight1')
                     connect_str += '         '
                     for j in range(len(path)-1):
                         if(j % 3 == 2):
@@ -639,7 +640,7 @@ def create_task_file6(robots, pallets, roadmap):
             if(i[0] != i[1]):
                 try:
                     connect_str += '         '
-                    path = nx.dijkstra_path(roadmap, source=i[1], target=i[0], weight='weight')
+                    path = nx.dijkstra_path(roadmap, source=i[1], target=i[0], weight='weight1')
                     for j in range(len(path)-1):
                         if(j % 3 == 2):
                             connect_str += '\n         '
@@ -716,7 +717,7 @@ def GetNodeLabel(pose, W_xgrid, W_ygrid, pix2m):
 if __name__ == '__main__':
     
     parser = argparse.ArgumentParser()
-    parser.add_argument("--robots", type=int, default=2, help="Number of robots to use")
+    parser.add_argument("--robots", type=int, default=4, help="Number of robots to use")
     args = parser.parse_args()
     N = args.robots
     
@@ -727,7 +728,8 @@ if __name__ == '__main__':
     
     robots = []
     # pose is [x,y,theta]   where x \in R, y \in R, theta \in (0, 1.57, 3.14, -1.57)
-    robot_ic = [[ 0.8, -0.30,  0.00], [-0.60,  0.00, -1.57]]
+    # robot_ic = [[ 0.8, -0.30,  0.00], [-0.60,  0.00, -1.57]]
+    robot_ic = [[ 0.8, -0.30,  0.00], [-0.60,  0.00, -1.57], [0.50, 2.50, 1.57], [-1.50, -2.50, 0.00]]
     for i in range(N):
         robots.append( Robot('robot%d'%(i), GetNodeLabel(robot_ic[i], W_xgrid, W_ygrid, pix2m)) )
     
@@ -801,11 +803,11 @@ if __name__ == '__main__':
 # #     if(i[0] == i[1]):
 # #         nodes.append(i[0])
 # #     else:
-# #         path = nx.dijkstra_path(roadmap, source=i[0], target=i[1], weight='weight')
+# #         path = nx.dijkstra_path(roadmap, source=i[0], target=i[1], weight='weight1')
 # #         for j in range(len(path)-1):
 # #             if(path[j+1] not in nodes):
 # #                 nodes.append(path[j+1])
-# #         path = nx.dijkstra_path(roadmap, source=i[1], target=i[0], weight='weight')
+# #         path = nx.dijkstra_path(roadmap, source=i[1], target=i[0], weight='weight1')
 # #         for j in range(len(path)-1):
 # #             if(path[j+1] not in nodes):
 # #                 nodes.append(path[j+1])

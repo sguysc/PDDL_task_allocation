@@ -11,7 +11,7 @@ import networkx as nx
 import pickle 
 
 work_dir = '/home/cornell/Tools/ipc-2018-temp-sat/rundir/'
-file_name = 'sas.plan_d'
+file_name = 'sas_plan.1'
 
 pickups = {'p0': [-0.60,  0.35, -1.57],
            'p1': [1.10, -0.30, 0.00], 
@@ -35,9 +35,9 @@ if __name__ == '__main__':
         f.readline()
         TotalCost = int(f.readline().split()[2])
         
-        robot_path = {'robot0': [], 'robot1': []}
-        robot_lastnode = {'robot0': [], 'robot1': []}
-        robot_assignment = {'robot0': {}, 'robot1': {}}
+        robot_path = {'robot0': [], 'robot1': [], 'robot2': [], 'robot3': []}
+        robot_lastnode = {'robot0': [], 'robot1': [], 'robot2': [], 'robot3': []}
+        robot_assignment = {'robot0': {}, 'robot1': {}, 'robot2': {}, 'robot3': {}}
         while(True):
             tmp_str = f.readline().split()
             if('END' in tmp_str[1]):
@@ -89,11 +89,11 @@ if __name__ == '__main__':
             # if(idx == 1):
                 
             # if(idx > 1):
-            #     path = nx.dijkstra_path(roadmap, source=former, target=ass[0].upper(), weight='weight')
+            #     path = nx.dijkstra_path(roadmap, source=former, target=ass[0].upper(), weight='weight1')
             #     for j in range(1, len(path)):
             #         states += '\'%s\', ' %(path[j].upper())
             #         actions += '%d, ' %(roadmap[path[j-1]][path[j]]['motion'])
-            # path = nx.dijkstra_path(roadmap, source=ass[0].upper(), target=ass[1].upper(), weight='weight')
+            # path = nx.dijkstra_path(roadmap, source=ass[0].upper(), target=ass[1].upper(), weight='weight1')
             # for j in range(1, len(path)):
             #     states += '\'%s\', ' %(path[j-1].upper())
             #     actions += '%d, ' %(roadmap[path[j-1]][path[j]]['motion'])
@@ -103,17 +103,22 @@ if __name__ == '__main__':
     for key, nodes in robot_path.items():
         states = ''
         actions = ''
+        if(len(nodes[0]) == 0 ):
+            print('%s is not participating' %key)
+            continue
+        # import pdb; pdb.set_trace()
         for j, node in enumerate(nodes):
             states += '\'%s\', ' %(node.upper())
             if(j < len(nodes)-1):
                 actions += '%d, ' %(roadmap[node.upper()][nodes[j+1].upper()]['motion'])
             # if(j+1 == len(nodes)):
+            #     states += '\'%s\', ' %(node.upper())
             #     break
-            # path = nx.dijkstra_path(roadmap, source=nodes[j].upper(), target=nodes[j+1].upper(), weight='weight')
+            # path = nx.dijkstra_path(roadmap, source=nodes[j].upper(), target=nodes[j+1].upper(), weight='weight1')
             # for i in range(1, len(path)):
             #     states += '\'%s\', ' %(path[i-1].upper())
             #     actions += '%d, ' %(roadmap[path[i-1]][path[i]]['motion'])
         print('%s' %key)
-        print('states={' + states + '};')
+        print('path={' + states[:-2] + '};')
         print('actions=[' + actions + '0];')
         print('===========================')
